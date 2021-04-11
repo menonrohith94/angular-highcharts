@@ -1,0 +1,19 @@
+<div style="text-align: center;" class="container">
+    <h1 [innerText]="pageTitle"></h1>
+    <hr>
+    <div class="row">
+        <div *ngFor="let training of trainingList" class="col-md-4">
+            <div class="card">
+                <div class="card-header card text-white bg-primary mb-3">
+                    Technology Name
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{training}}</h3>
+                    <p class="card-text">Click on the button Show Feed in Chart Format and you will see the detailed feedback implemented using
+                        Highcarts .</p><hr>
+                    <a href="#" class="btn btn-success" routerLink="/dashboard/feedback/{{training}}">Show Feedback</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

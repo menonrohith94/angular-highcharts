@@ -1,0 +1,19 @@
+<h1 [innerText]="pageTitle" style="text-align: center;"></h1>
+<hr>
+<div class="container">
+  <div class="row">
+    <div cdkDropList #chartsDragList="cdkDropList" [cdkDropListData]="charts" [cdkDropListConnectedTo]="[chartsDropList]" (cdkDropListDropped)="sortingDragList($event)" class="col-md-2">
+      <div *ngFor="let chart of charts" cdkDrag>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{chart}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div cdkDropList class="col-md-9" #chartsDropList="cdkDropList" [cdkDropListData]="charts" [cdkDropListConnectedTo]="[chartsDragList]"
+      (cdkDropListDropped)="drop($event)" style="height: auto">
+      <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"></highcharts-chart>
+    </div>
+  </div>
+</div>    
